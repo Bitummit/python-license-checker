@@ -25,7 +25,8 @@ def check_files(requirement_files):
 def make_report(report):
     if report:
         for item in report:
-            print(*item, sep='\n')
+            print('<-------------------', item['file'], '--------------------->')
+            print(*item['dep'], sep='\n')
 
             print('<----------------------------------------------------------------->')
         raise Exception("Dependencies have unallowed licenses")

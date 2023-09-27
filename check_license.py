@@ -17,13 +17,14 @@ class CheckLicense:
         return self._check_license(data)
 
     def _check_license(self, data):
-        bad_dependency = []
-        # bad_dependency["file"] = self.file
-
+        bad_dependency = {}
+        bad_dependency["file"] = self.file
+        bad_dependency["dep"] = []
         for item in data:
             for license in item["licenses"]:
                 if license not in self.ALLOWED_LICENSES:
-                    bad_dependency.append(item)
+                    bad_dependency["dep"].append(item)
 
         if len(bad_dependency) > 0:
+            print(bad_dependency)
             return bad_dependency
