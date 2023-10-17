@@ -37,7 +37,6 @@ if __name__ == "__main__":
     Search requirements files in whole project
     using pattern requirements*.txt
     '''
-    print(os.environ.get("CI_COMMIT_REF_NAME"))
     report = []
     requirement_files = find('requirements*.txt', os.path.dirname(os.path.abspath(__file__)))
 
