@@ -1,0 +1,14 @@
+image: alpine:latest
+
+stages:
+  - license_checking
+
+license_checking:
+  stage: license_checking
+  image:
+    name: python:3.11
+  script:
+    - python -m venv venv
+    - source venv/bin/activate
+    - python main.py
+  allow_failure: true

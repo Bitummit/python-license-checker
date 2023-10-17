@@ -1,10 +1,9 @@
 import json
-
+import os
 
 class CheckLicense:
 
-    ALLOWED_LICENSES = ["MIT License", "BSD License"]
-
+    ALLOWED_LICENSES = os.environ.get("ALLOWED_LICENSES").split(", ")
     def __init__(self, file):
         self.file = file
 
