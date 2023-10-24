@@ -37,10 +37,15 @@ if __name__ == "__main__":
     Search requirements files in whole project
     using pattern requirements*.txt
     '''
+    print("12312312312312312312313")
     report = []
     requirement_files = find('requirements*.txt', os.path.dirname(os.path.abspath(__file__)))
+    if requirement_files:
+        check_files(requirement_files)
+        make_report(report)
+    else:
+        print("Files nor found")
 
-    check_files(requirement_files)
-    make_report(report)
+    
     
 
