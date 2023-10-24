@@ -40,10 +40,13 @@ if __name__ == "__main__":
     project_path = __file__
     if len(sys.argv) > 1:
         project_path = sys.argv[1]
+    print(sys.argv)
     report = []
     requirement_files = find('requirements*.txt', os.path.dirname(os.path.abspath(project_path)))
+    print(sys.argv)
     if requirement_files:
         check_files(requirement_files)
         make_report(report)
+        print(sys.argv)
     else:
         print("Files nor found")
