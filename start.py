@@ -1,12 +1,12 @@
 import os
+import sys
+
 from file_finder import find
 from check_license import CheckLicense
 
 
 def check_files(requirement_files):
-
     for file in requirement_files:
-
         file_name = file.split('/')[-1].split('.')[0]
         # Install requirements and write licenses to json file
         os.system(f'pip install -r {file}')
@@ -37,15 +37,13 @@ if __name__ == "__main__":
     Search requirements files in whole project
     using pattern requirements*.txt
     '''
-    print("12312312312312312312313")
+    project_path = __file__
+    if len(sys.argv) > 1:
+        project_path = sys.argv[1]
     report = []
-    requirement_files = find('requirements*.txt', os.path.dirname(os.path.abspath(__file__)))
+    requirement_files = find('requirements*.txt', os.path.dirname(os.path.abspath(project_path)))
     if requirement_files:
         check_files(requirement_files)
         make_report(report)
     else:
         print("Files nor found")
-
-    
-    
-
