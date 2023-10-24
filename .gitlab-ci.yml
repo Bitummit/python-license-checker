@@ -10,5 +10,5 @@ license_checking:
   script:
     - python -m venv venv
     - source venv/bin/activate
-    - python start.py
+    - python license_checker/main.py
   allow_failure: true
