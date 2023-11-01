@@ -11,9 +11,9 @@ def check_files(requirement_files):
         # Install requirements and write licenses to json file
         os.system(f'pip install -r {file}')
         os.system('pip install pip-licenses')
-        os.system(f'pip-licenses --format=json-license-finder --output-file=tmp/{file_name}.json --ignore-packages pkg_resources')
+        os.system(f'pip-licenses --format=json-license-finder --output-file={file_name}.json --ignore-packages pkg_resources')
 
-        lic = CheckLicense(f"tmp/{file_name}.json")
+        lic = CheckLicense(f"{file_name}.json")
         result = lic.read_file()
         report.append(result) if result["dep"] else print(f"----------No bad dependencies found for {file_name}-----------")
 
